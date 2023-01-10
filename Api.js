@@ -14,7 +14,8 @@ fetch('https://online-movie-database.p.rapidapi.com/auto-complete?q=game%20of%20
 		list.map((item)=> {
 			const name = item.l; 
 			const poster = item.i.imageUrl;
-			const movie = `<li><img src="${poster}"><h2></h2>>`
+			const movie = `<li><img src="${poster}"><h2>${name}</h2>></li>`
+			document.querySelector('.movies').innerHTML += movie;
 		})
 	})
 	.catch(err => console.error(err));
