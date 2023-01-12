@@ -6,7 +6,6 @@ const reviewSchema = new Schema({
     type: String,
     required: true,
   },
-  // saved book id from GoogleBooks
   filmId: {
     type: String,
     required: true,
