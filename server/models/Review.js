@@ -1,19 +1,45 @@
 const { Schema } = require('mongoose');
 
-// This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedBooks` array in User.js
+
 const reviewSchema = new Schema({
-  description: {
-    type: String,
-    required: true,
+  author:{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   },
-  filmId: {
-    type: String,
-    required: true,
-  },
+  film: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Film'
+    }
+  ],
   review: {
     type: String,
     required: true,
   },
+  rating: {
+    type: Integer,
+    required: true
+  }
 });
 
-module.exports = reviewSchema;
+const Review = model('review', reviewSchema);
+
+// Aggregate to get the average rating for each film
+Review.aggregate([
+  {
+      $group: {
+          _id: '$film',
+          ratingAvg: {$avg: '$rating'}
+      }
+  }
+  ], function(err, results){
+      if(err){
+          console.log(err);
+      }else{
+          console.log(results);
+      }
+  }
+
+  );
+
+module.exports = Review;

@@ -21,10 +21,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
     reviews: [reviewSchema],
   },
-  // set this to use virtual below
   {
     toJSON: {
       virtuals: true,
