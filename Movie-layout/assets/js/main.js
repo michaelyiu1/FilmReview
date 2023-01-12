@@ -288,5 +288,5 @@
    * Initiate Pure Counter 
    */
   new PureCounter();
-
+console.log(movies);
 })()
