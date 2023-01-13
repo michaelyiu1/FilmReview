@@ -51,17 +51,23 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeBook: async (parent, { bookId }, context) => {
+
+    addReview: async (parent, args, context) => {
+      if(context.user){
+        const newReview = await Review.Create(args);
+
+        return newReview;
+      }  
+      throw new AuthenticationError('You need to be logged in to submit a review');
+    },
+
+    removeReview: async (parent, { reviewId }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedBooks: { bookId } } },
-          { new: true }
+        const removeReview = await Review.findOneAndDelete(
+          { _id: reviewId },
         );
-
-        return updatedUser;
+        return removeReview
       }
-
       throw new AuthenticationError('You need to be logged in!');
     },
   },

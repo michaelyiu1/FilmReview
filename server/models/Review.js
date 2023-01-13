@@ -6,12 +6,11 @@ const reviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  film: [
+  film:
     {
       type: Schema.Types.ObjectId,
       ref: 'Film'
-    }
-  ],
+    },
   review: {
     type: String,
     required: true,
@@ -39,7 +38,6 @@ Review.aggregate([
           console.log(results);
       }
   }
-
   );
 
 module.exports = Review;

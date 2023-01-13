@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose');
-const reviewSchema = require('./Review');
+const Review = require('./Review');
 
 // Create schema for Film.js
 const filmSchema = new Schema({
@@ -11,12 +11,7 @@ const filmSchema = new Schema({
         type: String,
         required: true
     },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref:"Review"
-        }
-    ]
+    reviews: [Review]
 },
 {
     toJSON: {
