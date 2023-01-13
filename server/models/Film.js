@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose');
-const Review = require('./Review');
+const {reviewSchema} = require('./Review');
 
 // Create schema for Film.js
 const filmSchema = new Schema({
@@ -11,7 +11,7 @@ const filmSchema = new Schema({
         type: String,
         required: true
     },
-    reviews: [Review]
+    reviews: [reviewSchema]
 },
 {
     toJSON: {
@@ -21,7 +21,7 @@ const filmSchema = new Schema({
 
 //Create virtual for getting number of reviews
 filmSchema.virtual('reviewCount').get(function () {
-    return this.reviews.;
+    return this.reviews.length;
 });
 
 

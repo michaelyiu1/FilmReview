@@ -38,19 +38,19 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveBook: async (parent, { bookData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedBooks: bookData } },
-          { new: true }
-        );
+    // saveBook: async (parent, { bookData }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { savedBooks: bookData } },
+    //       { new: true }
+    //     );
 
-        return updatedUser;
-      }
+    //     return updatedUser;
+    // //   }
 
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
     addReview: async (parent, args, context) => {
       if(context.user){
@@ -61,15 +61,15 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in to submit a review');
     },
 
-    removeReview: async (parent, { reviewId }, context) => {
-      if (context.user) {
-        const removeReview = await Review.findOneAndDelete(
-          { _id: reviewId },
-        );
-        return removeReview
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+  //   removeReview: async (parent, { reviewId }, context) => {
+  //     if (context.user) {
+  //       const removeReview = await Review.findOneAndDelete(
+  //         { _id: reviewId },
+  //       );
+  //       return removeReview
+  //     }
+  //     throw new AuthenticationError('You need to be logged in!');
+  //   },
   },
 };
 

@@ -1,4 +1,6 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
+// const User = require('./User');
+// const Film = require('./Film');
 
 
 const reviewSchema = new Schema({
@@ -16,12 +18,12 @@ const reviewSchema = new Schema({
     required: true,
   },
   rating: {
-    type: Integer,
+    type: Number,
     required: true
   }
 });
 
-const Review = model('review', reviewSchema);
+const Review = model('Review', reviewSchema);
 
 // Aggregate to get the average rating for each film
 Review.aggregate([
@@ -40,4 +42,4 @@ Review.aggregate([
   }
   );
 
-module.exports = Review;
+module.exports = {Review, reviewSchema};
