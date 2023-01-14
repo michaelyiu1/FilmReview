@@ -70,7 +70,7 @@ const resolvers = {
         const updatedReview = await Review.findOneAndUpdate(
           {_id: context.user._id},
           {review: reviewData.review},
-          {rating: reviewData.rating}
+          {rating: reviewData.rating},
           {new: true}
         );
         return updatedReview;
