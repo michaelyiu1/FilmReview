@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
-// const User = require('./User');
-// const Film = require('./Film');
+const User = require('./User');
+const Film = require('./Film');
 
 
 const reviewSchema = new Schema({

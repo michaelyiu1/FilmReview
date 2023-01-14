@@ -39,12 +39,16 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    findOneFilm: Film
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addReview(author: ID!, film: ID!, review: String!, rating: Int!): Review 
+    addReview(author: ID!, film: ID!, review: String!, rating: Int!): Review
+    editReview(reviewData: ReviewInput!): Review
+    removeReview(reviewId: ID!): Review
+    addFilm(filmId: ID!, title: String!, description: String!): Film  
   }
 `;
 

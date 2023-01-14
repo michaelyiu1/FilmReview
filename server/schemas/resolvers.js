@@ -13,6 +13,14 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
+    findOneFilm: async (parent, args, context) => {
+      if(context.user) {
+        const filmData = await Film.findOne({filmId: args});
+
+        return filmData;
+      }
+    }
   },
 
   Mutation: {
@@ -38,19 +46,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // saveBook: async (parent, { bookData }, context) => {
-    //   if (context.user) {
-    //     const updatedUser = await User.findByIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $push: { savedBooks: bookData } },
-    //       { new: true }
-    //     );
 
-    //     return updatedUser;
-    // //   }
+    addFilm: async(parent, args, context) => {
+      if(context.user){
+        const newFilm = await Film.create(args);
 
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+        return newFilm;
+      }
+      throw new AuthenticationError('You need to be logged in to submit a review');
+    },
 
     addReview: async (parent, args, context) => {
       if(context.user){
@@ -61,15 +65,27 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in to submit a review');
     },
 
-  //   removeReview: async (parent, { reviewId }, context) => {
-  //     if (context.user) {
-  //       const removeReview = await Review.findOneAndDelete(
-  //         { _id: reviewId },
-  //       );
-  //       return removeReview
-  //     }
-  //     throw new AuthenticationError('You need to be logged in!');
-  //   },
+    editReview: async (parent, {reviewData}, context) => {
+      if(context.user){
+        const updatedReview = await Review.findOneAndUpdate(
+          {_id: context.user._id},
+          {review: reviewData.review},
+          {rating: reviewData.rating}
+          {new: true}
+        );
+        return updatedReview;
+      }
+    },
+
+    removeReview: async (parent, { reviewId }, context) => {
+      if (context.user) {
+        const removeReview = await Review.findOneAndDelete(
+          { _id: reviewId },
+        );
+        return removeReview
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 
