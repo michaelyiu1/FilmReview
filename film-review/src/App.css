@@ -2,6 +2,7 @@ main {
     margin: 0 auto;
     max-width: 90%;
     padding: 50px 30px;
+    
   }
   :root {
     --primary: #8c54ff;
@@ -15,6 +16,7 @@ main {
     --spacing-one: calc(1rem * 0.5);
     --spacing-two: calc(1rem);
     --spacing-five: calc(2.5rem);
+    
   }
   
   * {
