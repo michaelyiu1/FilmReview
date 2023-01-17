@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Signup() {
   return (
-    <div>
-      
-    </div>
+    <section>
+      <h1>hfdsafdsafdsafi</h1>
+    </section>
   )
 }

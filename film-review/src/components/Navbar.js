@@ -1,36 +1,21 @@
-import React, { useEffect } from 'react';
-
-function Navbar(props) {
-  const {
-    pages = [],
-    setCurrentPage,
-    currentPage,
-  } = props;
-
-  useEffect(() => {
-    document.title = capitalizeFirstLetter(currentPage.name);
-  }, [currentPage]);
-
-  return (    
-      <nav>
-        <ul className="flex-row">
-          {pages.map((Page) => (
-            <li
-              className={`mx-5 ${
-                currentPage.name === Page.name && 'navActive'
-                }`}
-              key={Page.name}
-            >
-              <span
-                onClick={() => setCurrentPage(Page)}
-              >
-                {capitalizeFirstLetter(Page.name)}
-              </span>
+import React from 'react';
+function Navbar() {
+  return (
+   <nav className='nav'>
+    <a href='/' className='site-title'>Movies For You!</a>
+    <ul>
+        <li>
+            <a href='/About'>About</a>
+         </li>
+            <li>  <a href='/Movies'>Movies</a> 
+         </li>
+        <li> <a href='/Signup'>Signup</a>
             </li>
-          ))}
-        </ul>
-      </nav>
+
+    </ul>
+   </nav>
   );
+
 }
 
 export default Navbar;

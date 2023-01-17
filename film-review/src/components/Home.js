@@ -1,8 +1,8 @@
 import React from 'react';
-function About() {
+function Home() {
   return (
     <section className="my-5">
-      <hi>hello world</hi>
+      <hi>hgihihih</hi>
       <l1>poop</l1>
      
     </section>
@@ -10,4 +10,4 @@ function About() {
 
 }
 
-export default About;
+export default Home;

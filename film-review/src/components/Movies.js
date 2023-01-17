@@ -7,6 +7,7 @@ function Movies({ movies }) {
 
   return (
     <div className="movies" key={name}>
+      <h1>hello world</h1>
    
     </div>
   );
