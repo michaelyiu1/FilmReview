@@ -17,3 +17,12 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const FIND_ONE_FILM = gql`
+{
+  findOneFilm {
+    description
+    filmId
+    title
+  }
+}`

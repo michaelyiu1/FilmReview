@@ -39,6 +39,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    getAllUsers: [User]
     findOneFilm: Film
   }
 

@@ -14,6 +14,11 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
+    getAllUsers: async () => {
+      const userData = await User.find({});
+      return userData;
+    },
+
     findOneFilm: async (parent, args, context) => {
       if(context.user) {
         const filmData = await Film.findOne({filmId: args});
