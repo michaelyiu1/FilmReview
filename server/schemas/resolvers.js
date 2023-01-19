@@ -20,11 +20,8 @@ const resolvers = {
     },
 
     findOneFilm: async (parent, args, context) => {
-      if(context.user) {
-        const filmData = await Film.findOne({filmId: args});
-
+        const filmData = await Film.findOne({title: args});
         return filmData;
-      }
     }
   },
 
@@ -53,12 +50,11 @@ const resolvers = {
     },
 
     addFilm: async(parent, args, context) => {
-      if(context.user){
+      const film = await Film.findOne({title: args});
+      if(!film){
         const newFilm = await Film.create(args);
-
         return newFilm;
       }
-      throw new AuthenticationError('You need to be logged in to submit a review');
     },
 
     addReview: async (parent, args, context) => {
