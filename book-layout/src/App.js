@@ -8,6 +8,7 @@ import About from './components/About';
 import Movies from './components/Movies';
 import Signup from './components/Signup';
 import Partners from './components/Partners';
+import Login from './components/Login';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
    <Route path="/About" element={<About />} />
    <Route path="/Movies" element={<Movies />} />
    <Route path="/Signup" element={<Signup />} />
+   <Route path="/Login" element={<Login />} />
    <Route path="/Partners" element={<Partners />} />
    </Routes>
    </div>

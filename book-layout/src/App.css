@@ -40,5 +40,5 @@
 .movie-poster{
   height: auto;
   width: fit-content;
- filter: blur(8px);
+ /* filter: blur(8px); */
 }

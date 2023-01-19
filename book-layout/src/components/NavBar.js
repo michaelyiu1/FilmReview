@@ -15,14 +15,11 @@ function NavBar() {
             <Nav.Link href="/About">About</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="/Signup">Signup</NavDropdown.Item>
+              <NavDropdown.Item href="/Login">Login</NavDropdown.Item>
               <NavDropdown.Item href="/Partners">
                 Partners
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
