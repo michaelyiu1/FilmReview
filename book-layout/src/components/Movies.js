@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { MDBCol } from "mdbreact";
 
-export default function Movies() {
+const Movies = () => {
   return (
-    <div>
-      <h1>Movies</h1>
-    </div>
-  )
+    <MDBCol md="8">
+      <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+    </MDBCol>
+  );
 }
+
+export default Movies;
+

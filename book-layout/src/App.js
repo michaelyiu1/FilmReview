@@ -9,6 +9,7 @@ import Movies from './components/Movies';
 import Signup from './components/Signup';
 import Partners from './components/Partners';
 import Login from './components/Login';
+import MovieData from './components/MovieData'
 
 
 function App() {
