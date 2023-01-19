@@ -7,16 +7,16 @@ function NavBar() {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Movies For You!</Navbar.Brand>
+        <Navbar.Brand href="/Home">Movies For You!</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/Home">Home</Nav.Link>
-            <Nav.Link href="#link">About</Nav.Link>
+            <Nav.Link href="/Movies">Movies</Nav.Link>
+            <Nav.Link href="/About">About</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Signup</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+              <NavDropdown.Item href="/Signup">Signup</NavDropdown.Item>
+              <NavDropdown.Item href="/Partners">
+                Partners
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
