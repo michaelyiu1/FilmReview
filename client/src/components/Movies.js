@@ -1,5 +1,5 @@
 import { MDBCol } from "mdbreact";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Jumbotron,
   Container,
@@ -10,12 +10,14 @@ import {
   CardColumns,
 } from 'react-bootstrap';
 import Auth from '../utils/auth';
-
+import MovieContext from '../utils/MovieContext';
 import { useMutation } from '@apollo/client';
 import { ADD_FILM } from '../utils/mutations';
+import { Link } from 'react-router-dom';
 
 const Movies = () => {
 
+  const data = useContext(MovieContext);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
@@ -56,6 +58,7 @@ const Movies = () => {
 
       console.log(filmData);
 
+      setSearchedFilms([...filmData]);
       setSearchInput('');
     } catch (err) {
       console.error(err);
@@ -143,6 +146,7 @@ const Movies = () => {
                     //     : 'Review This Film!'}
                     // </Button>
                  //)}*/}
+                 <Button to="/Review" onClick={() => data.setCurrentMovie(film)} ><Button>Reviews</Button></Button>
                 </Card.Body>
               </Card>
             );

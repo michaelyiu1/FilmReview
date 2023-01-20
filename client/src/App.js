@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {ApolloClient, InMemoryCache, ApolloProvider, createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import MovieProvider from './utils/MovieContext';
 
 import logo from './logo.svg';
 import './App.css';
@@ -45,6 +46,7 @@ function App() {
     <Router>
     <div>
      <NavBar/>
+     <MovieProvider>
      <Routes>
         <Route path="/Home" element={<Home />} />
         <Route path="/About" element={<About />} />
@@ -53,6 +55,7 @@ function App() {
         <Route path="/Review" element={<Review/>} />
         <Route path="/Movies" element={<Movies/>}/>
       </Routes>
+      </MovieProvider>
    </div>
   </Router>
   </ApolloProvider>

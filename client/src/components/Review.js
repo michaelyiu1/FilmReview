@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -12,9 +12,12 @@ import {
   Card,
   Button,
 } from 'react-bootstrap';
+import MovieContext from '../utils/MovieContext';
 
 
 const Reviews = () => {
+  const movieData = useContext(MovieContext);
+  console.log(movieData?.currentMovie);
   const { loading, data } = useQuery(GET_FILM_REVIEWS);
   const [removeReview, { error }] = useMutation(REMOVE_REVIEW);
 
