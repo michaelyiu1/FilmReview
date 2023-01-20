@@ -18,9 +18,10 @@
   "dependencies": {
     "apollo-server-express": "^2.25.3",
     "express": "^4.17.2",
-    "graphql": "^15.8.0"
+    "graphql": "^15.8.0",
+    "mdbreact": "^5.2.0"
   },
-  "engines":{
+  "engines": {
     "node": "16.x"
   }
 }
