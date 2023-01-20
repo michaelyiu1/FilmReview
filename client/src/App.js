@@ -1,12 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
+import {ApolloClient, InMemoryCache, ApolloProvider, createHttpLink} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import MovieProvider from './utils/MovieContext';
 
 import logo from './logo.svg';
 import './App.css';
@@ -47,19 +43,21 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <BrowserRouter>
+    <Router>
     <div>
      <NavBar/>
+     <MovieProvider>
      <Routes>
         <Route path="/Home" element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/Movies" element={<Movies />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Review" element={<Review/>} />
+        <Route path="/Movies" element={<Movies/>}/>
       </Routes>
+      </MovieProvider>
    </div>
-  </BrowserRouter>
+  </Router>
   </ApolloProvider>
     
   );
