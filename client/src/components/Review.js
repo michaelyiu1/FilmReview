@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import { ADD_REVIEW, EDIT_REVIEW, REMOVE_REVIEW } from '../utils/mutations';
+import { ADD_REVIEW, EDIT_REVIEW, REMOVE_REVIEW, ADD_FILM } from '../utils/mutations';
 import { QUERY_ME, GET_FILM_REVIEWS } from '../utils/queries';
 import Auth from '../utils/auth';
 import {
@@ -52,7 +52,7 @@ const Reviews = () => {
     <>
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
-          <h1>Viewing Reviews</h1>
+          <h1>Viewing {movieData?.title} Reviews</h1>
         </Container>
       </Jumbotron>
       <Container>
