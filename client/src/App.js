@@ -8,9 +8,16 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
-import Navbar from './components/Navbar';
+import logo from './logo.svg';
+import './App.css';
+import NavBar from './components/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home';
+import About from './components/About';
+import Movies from './components/Movies';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Review from './components/Review';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -36,29 +43,25 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Navbar />
-          <Routes>
-            <Route 
-              path="/" 
-              element={<SearchBooks/>} 
-            />
-            <Route 
-              path="/saved" 
-              element={<SavedBooks/>} 
-            />
-            <Route 
-              path='*' 
-              element={<h1 className="display-2">Wrong page!</h1>}
-            />
-          </Routes>
-        </>
-      </Router>
-    </ApolloProvider>
+    <BrowserRouter>
+    <div>
+     <NavBar/>
+     <Routes>
+        <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Movies" element={<Movies />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Review" element={<Review/>} />
+      </Routes>
+   </div>
+  </BrowserRouter>
+  </ApolloProvider>
+    
   );
 }
 

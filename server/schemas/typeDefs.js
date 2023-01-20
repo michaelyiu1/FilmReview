@@ -41,6 +41,7 @@ const typeDefs = gql`
     me: User
     getAllUsers: [User]
     findOneFilm: Film
+    getFilmReviews: [Review]
   }
 
   type Mutation {
