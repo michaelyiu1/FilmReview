@@ -22,6 +22,13 @@ const resolvers = {
     findOneFilm: async (parent, args, context) => {
         const filmData = await Film.findOne({title: args});
         return filmData;
+    },
+
+    //Get all the reviews from a film
+    getFilmReviews: async (parent, args, context) => {
+      const reviewData = await Review.find({film: {title: args.title}});
+
+      return reviewData;
     }
   },
 

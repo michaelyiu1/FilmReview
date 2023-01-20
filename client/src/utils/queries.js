@@ -3,16 +3,14 @@ import { gql } from '@apollo/client';
 export const QUERY_ME = gql`
   {
     me {
-      _id
-      username
       email
-      savedBooks {
-        bookId
-        authors
-        image
-        description
-        title
-        link
+      reviewCount
+      username
+      reviews {
+        film {
+          description
+          title
+        }
       }
     }
   }
@@ -26,3 +24,16 @@ export const FIND_ONE_FILM = gql`
     title
   }
 }`
+
+export const GET_FILM_REVIEWS = gql`
+{
+  getFilmReviews {
+    film {
+      reviews {
+        review
+        rating
+      }
+    }
+  }
+}
+`
