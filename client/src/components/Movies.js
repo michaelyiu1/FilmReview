@@ -45,14 +45,16 @@ const Movies = () => {
         throw new Error('something went wrong!');
       }
 
-      const { items } = await response.json();
+      const { results } = await response.json();
 
-      const filmData = items.map((film) => ({
+      const filmData = results.map((film) => ({
         filmId: film.id,
         title: film.title,
         description: film.overview,
         image: film.poster_path || '',
       }));
+
+      console.log(filmData);
 
       setSearchInput('');
     } catch (err) {
@@ -73,11 +75,11 @@ const Movies = () => {
       }
   
       try {
-        const { data } = await saveBook({
-          variables: { filmData: { ...FilmToSave } },
+        const { data } = await addFilm({
+          variables: { filmData: { ...filmToSave } },
         });
-        console.log(savedFilmIds);
-        setSavedFilmIds([...savedFilmIds, filmToSave.filmId]);
+        //console.log(savedFilmIds);
+       // setSavedFilmIds([...savedFilmIds, filmToSave.filmId]);
       } catch (err) {
         console.error(err);
       }
@@ -128,19 +130,19 @@ const Movies = () => {
                 <Card.Body>
                   <Card.Title>{film.title}</Card.Title>
                   <Card.Text>{film.description}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedFilmIds?.some(
-                        (savedId) => savedId === film.filmId
-                      )}
-                      className="btn-block btn-info"
-                      onClick={() => handleSaveFilm(film.filmId)}
-                    >
-                      {savedFilmIds?.some((savedId) => savedId === film.filmId)
-                        ? 'Check out the reviews!'
-                        : 'Review This Film!'}
-                    </Button>
-                  )}
+                 {/*{Auth.loggedIn() && (
+                    // <Button
+                    //   disabled={savedFilmIds?.some(
+                    //     (savedId) => savedId === film.filmId
+                    //   )}
+                    //   className="btn-block btn-info"
+                    //   // onClick={() => handleSaveFilm(film.filmId)}
+                    // >
+                    //   {savedFilmIds?.some((savedId) => savedId === film.filmId)
+                    //     ? 'Check out the reviews!'
+                    //     : 'Review This Film!'}
+                    // </Button>
+                 //)}*/}
                 </Card.Body>
               </Card>
             );

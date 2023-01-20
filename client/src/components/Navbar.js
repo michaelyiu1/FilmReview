@@ -16,9 +16,6 @@ function NavBar() {
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="/Signup">Signup</NavDropdown.Item>
               <NavDropdown.Item href="/Login">Login</NavDropdown.Item>
-              <NavDropdown.Item href="/Partners">
-                Partners
-              </NavDropdown.Item>
               
             </NavDropdown>
           </Nav>
