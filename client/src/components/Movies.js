@@ -133,20 +133,7 @@ const Movies = () => {
                 <Card.Body>
                   <Card.Title>{film.title}</Card.Title>
                   <Card.Text>{film.description}</Card.Text>
-                 {/*{Auth.loggedIn() && (
-                    // <Button
-                    //   disabled={savedFilmIds?.some(
-                    //     (savedId) => savedId === film.filmId
-                    //   )}
-                    //   className="btn-block btn-info"
-                    //   // onClick={() => handleSaveFilm(film.filmId)}
-                    // >
-                    //   {savedFilmIds?.some((savedId) => savedId === film.filmId)
-                    //     ? 'Check out the reviews!'
-                    //     : 'Review This Film!'}
-                    // </Button>
-                 //)}*/}
-                 <Button to="/Review" onClick={() => data.setCurrentMovie(film)} ><Button>Reviews</Button></Button>
+                 <Link to="/Review" onClick={() => data.setCurrentMovie(film)} ><Button>Reviews</Button></Link>
                 </Card.Body>
               </Card>
             );
