@@ -133,7 +133,7 @@ const Movies = () => {
                 <Card.Body>
                   <Card.Title>{film.title}</Card.Title>
                   <Card.Text>{film.description}</Card.Text>
-                 <Link to="/Review" onClick={() => data.setCurrentMovie(film)} ><Button>Reviews</Button></Link>
+                 <Link to="/Review" onClick={() => data.setCurrentMovie(film), console.log(film)} ><Button>Reviews</Button></Link>
                 </Card.Body>
               </Card>
             );
