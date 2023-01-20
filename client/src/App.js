@@ -8,12 +8,8 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './components/Home';
-import About from './components/About';
-import Movies from './components/Movies';
-import Signup from './components/Signup';
-import Login from './components/Login';
-import Review from './components/Review';
+import Movies from './pages/Movies';
+import Review from './pages/Review';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -48,10 +44,6 @@ function App() {
      <NavBar/>
      <MovieProvider>
      <Routes>
-        <Route path="/Home" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Signup" element={<Signup />} />
-        <Route path="/Login" element={<Login />} />
         <Route path="/Review" element={<Review/>} />
         <Route path="/Movies" element={<Movies/>}/>
       </Routes>
