@@ -53,7 +53,7 @@ const Movies = () => {
         filmId: film.id,
         title: film.title,
         description: film.overview,
-        image: film.poster_path || '',
+        image: 'https://image.tmdb.org/t/p/w154' + film.poster_path || '',
       }));
 
       console.log(filmData);
