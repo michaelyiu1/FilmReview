@@ -1,3 +1,5 @@
+
+
 import '../App.css';
 import { useState, useEffect } from "react";
 import moviePoster from '../Images/movie-poster.jpg'
@@ -12,4 +14,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
 

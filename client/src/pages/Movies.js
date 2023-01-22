@@ -14,6 +14,7 @@ import MovieContext from '../utils/MovieContext';
 import { useMutation } from '@apollo/client';
 import { ADD_FILM } from '../utils/mutations';
 import { Link } from 'react-router-dom';
+import Review from './Review';
 
 const Movies = () => {
 
@@ -88,6 +89,13 @@ const Movies = () => {
       }
     };
 
+    function test() {
+      //data.setCurrentMovie(film)
+      console.log('hi');
+      // console.log(currentdat'this is moviecontextdata');
+
+    };
+
 
 // React html
     return (
@@ -133,7 +141,7 @@ const Movies = () => {
                 <Card.Body>
                   <Card.Title>{film.title}</Card.Title>
                   <Card.Text>{film.description}</Card.Text>
-                 <Link to="/Review" onClick={() => data.setCurrentMovie(film)} ><Button>Reviews</Button></Link>
+                 <Link to='/Review'><Button onClick={test}>Reviews</Button></Link>
                 </Card.Body>
               </Card>
             );
