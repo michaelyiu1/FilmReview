@@ -5,6 +5,7 @@ import { LOGIN_USER } from '../utils/mutations';
 import { ADD_REVIEW, EDIT_REVIEW, REMOVE_REVIEW, ADD_FILM } from '../utils/mutations';
 import { QUERY_ME, GET_FILM_REVIEWS } from '../utils/queries';
 import Auth from '../utils/auth';
+import { redirect } from "react-router-dom";
 import {
   Jumbotron,
   Container,
@@ -17,7 +18,7 @@ import MovieContext from '../utils/MovieContext';
 
 const Reviews = () => {
   const movieData = useContext(MovieContext);
-  console.log(movieData?.currentMovie);
+ // console.log(movieData);
   const { loading, data } = useQuery(GET_FILM_REVIEWS);
   const [removeReview, { error }] = useMutation(REMOVE_REVIEW);
 
