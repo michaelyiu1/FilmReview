@@ -18,7 +18,7 @@ const reviewSchema = new Schema({
       type: STRING
     }
   review: {
-    type: String,
+    type: STRING,
     required: true,
   },
   rating: {
