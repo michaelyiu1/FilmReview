@@ -45,12 +45,14 @@ function App() {
     <div>
      <NavBar/>
      <MovieProvider>
-     <Routes>
-        <Route path="/Review" element={<Review/>} />
-        <Route path="/Movies" element={<Movies/>}/>
-        <Route path="/Movies" element={<Home/>}/>
-      </Routes>
-      {/* <Home/> */}
+      <Routes>
+          <Route path="/Review" element={<Review/>} />
+          <Route path="/Movies" element={<Movies/>}/>
+          <Route path="/Movies" element={<Home/>}/>
+          <Route path="/" element={<Home/>}/>
+          
+        </Routes>
+        {/* <Home/> */}
       </MovieProvider>
    </div>
   </Router>

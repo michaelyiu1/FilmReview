@@ -5,8 +5,8 @@ import moviePoster from '../Images/movie-poster.jpg'
 const Home = () => {
 
   return (
-    <div>
-      <h1>Movies For You! "MFY"</h1>
+    <div className=''>
+   <title>Movies For You!</title>
       <img src={moviePoster} />
     </div>
   );

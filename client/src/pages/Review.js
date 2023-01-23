@@ -109,7 +109,7 @@ const Reviews = () => {
 
         <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Col xs={10} md={8}>
                 <Form.Control
                   name="reviewInput"
                   value={reviewInput}

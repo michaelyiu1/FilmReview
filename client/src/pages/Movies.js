@@ -17,8 +17,8 @@ import { ADD_FILM } from '../utils/mutations';
 import { Link } from 'react-router-dom';
 import { saveFilm, getSavedFilm } from '../utils/localStorage';
 import Review from './Review';
-import React from "react";
-import { MDBBtn } from "mdb-react-ui-kit";
+
+// import { MDBBtn } from "mdb-react-ui-kit";
 
 
 
@@ -106,22 +106,23 @@ const Movies = () => {
 
 // React html
     return (
-    
-    <MDBCol>
+  
+    <MDBCol lg="12">
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={5} md={6}>
-                <Form.Control
+              <Col xs={10} md={8}>
+       
+                <Form.Control 
                   name="searchInput"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="text"
                   size="lg"
                   placeholder="Search for a movie"
-                />
+                  />
               </Col>
-              <Col xs={1} md={4}>
-                <Button type="submit" variant="success" size="lg">
+              <Col md={12} lg={4}>
+                <Button type="submit" variant="success" size="md" center>
                   Submit Search
                 </Button>
               </Col>
@@ -134,6 +135,7 @@ const Movies = () => {
             ? `Viewing ${searchedFilms.length} results:`
             : 'Search for a film to begin'}
         </h2>
+
         <Row>
           {searchedFilms.map((film) => {
             return (
@@ -144,7 +146,7 @@ const Movies = () => {
                   <Card.Img
                     src={film.image}
                     alt={`The cover for ${film.title}`}
-                    variant="top"
+                    variant="center"
                   />
                 ) : null}
                 <Card.Body>
@@ -159,9 +161,11 @@ const Movies = () => {
         </Row>
       </Container>
     </MDBCol>
+  
 
   );
 }
+
 
 export default Movies;
 
