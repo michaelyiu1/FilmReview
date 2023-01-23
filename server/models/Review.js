@@ -8,18 +8,21 @@ const reviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  film:
+  filmId:
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Film'
+      type: Number,
+      required: true
     },
+  filmTitle:
+    {
+      type: STRING
+    }
   review: {
     type: String,
     required: true,
   },
   rating: {
     type: Number,
-    required: true
   }
 });
 
