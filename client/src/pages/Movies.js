@@ -8,6 +8,7 @@ import {
   Button,
   Card,
   CardColumns,
+  Row,
 } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import MovieContext from '../utils/MovieContext';
@@ -102,7 +103,7 @@ const Movies = () => {
 // React html
     return (
     
-    <MDBCol md="8">
+    <MDBCol>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -129,9 +130,11 @@ const Movies = () => {
             ? `Viewing ${searchedFilms.length} results:`
             : 'Search for a film to begin'}
         </h2>
-        <CardColumns>
+        <Row>
           {searchedFilms.map((film) => {
             return (
+              <Col md={4}>
+              
               <Card key={film.filmId} border="dark">
                 {film.image ? (
                   <Card.Img
@@ -146,9 +149,10 @@ const Movies = () => {
                  <Link to='/Review'><Button onClick={() => saveFilm(film)}>Reviews</Button></Link>
                 </Card.Body>
               </Card>
+              </Col>
             );
           })}
-        </CardColumns>
+        </Row>
       </Container>
     </MDBCol>
 

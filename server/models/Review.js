@@ -10,19 +10,19 @@ const reviewSchema = new Schema({
   },
   filmId:
     {
-      type: Number,
+      type: Schema.Types.Number,
       required: true
     },
   filmTitle:
     {
-      type: STRING
-    }
+      type: Schema.Types.String,
+    },
   review: {
-    type: String,
+    type: Schema.Types.String,
     required: true,
   },
   rating: {
-    type: Number,
+    type: Schema.Types.Number,
   }
 });
 

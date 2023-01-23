@@ -7,18 +7,18 @@ const {reviewSchema} = require('./Review');
 const userSchema = new Schema(
   {
     username: {
-      type: String,
+      type: Schema.Types.String,
       required: true,
       unique: true,
     },
     email: {
-      type: String,
+      type: Schema.Types.String,
       required: true,
       unique: true,
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
     password: {
-      type: String,
+      type: Schema.Types.String,
       required: true,
     },
     reviews: [reviewSchema],

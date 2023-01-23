@@ -39,6 +39,10 @@
 }
 .movie-poster{
   height: auto;
-  width: fit-content;
- /* filter: blur(8px); */
+  width: 100%;
+  position: absolute;
+  top: 0;
+ filter: blur(8px);
+z-index: -1;
+
 }

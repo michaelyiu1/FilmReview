@@ -69,9 +69,12 @@ const Reviews = () => {
 
   return (
     <>
+     <img src={savedFilm.image} className="movie-poster"/>
       <Jumbotron fluid className="text-light bg-dark">
+       
         <Container>
           <h1>Viewing {savedFilm.title} Reviews</h1>
+         
         </Container>
       </Jumbotron>
       <Container>
