@@ -21,10 +21,10 @@ const Reviews = () => {
 
   // create state to hold saved film values
     const [savedFilm, setSavedFilm] = useState(getSavedFilm());
-    console.log(savedFilm);
 
   // create state for holding our review field data
   const [reviewInput, setReviewInput] = useState('');
+  const [similarMovies, setSimilarMovies] = useState('');
   const { loading, data } = useQuery(GET_FILM_REVIEWS);
   const [removeReview, { remove_error }] = useMutation(REMOVE_REVIEW);
   const [addReview, { add_error }] = useMutation(ADD_REVIEW);
@@ -36,9 +36,9 @@ const Reviews = () => {
 
       console.log(reviewInput);
 
-      const { data } = await addReview({
-          filmId: savedFilm.filmId,
-          review: reviewInput });
+      // const { data } = await addReview({
+      //     filmId: savedFilm.filmId,
+      //     review: reviewInput });
   
     };
 
@@ -66,6 +66,26 @@ const Reviews = () => {
   if (loading) {
     return <h2>LOADING...</h2>;
   }
+
+  // create method to search for books and set state on form submit
+  const getSimilarMovies = async () => {
+
+    const url = 'https://api.themoviedb.org/3/movie/' + savedFilm.filmId + '/similar?api_key=6d3aad0cfe43a6f1900888b591f48490&language=en-US&page=1';
+
+    try {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+      const { results } = await response.json();
+      console.log(results);
+
+      setSimilarMovies(results);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -124,6 +144,7 @@ const Reviews = () => {
             );
           })}
         </CardColumns>
+        
       </Container>
     </>
   );

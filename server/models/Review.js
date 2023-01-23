@@ -15,8 +15,8 @@ const reviewSchema = new Schema({
     },
   filmTitle:
     {
-      type: STRING
-    }
+      type: String
+    },
   review: {
     type: String,
     required: true,

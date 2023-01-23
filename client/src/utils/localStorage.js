@@ -3,15 +3,12 @@ export const getSavedFilm = () => {
     ? JSON.parse(localStorage.getItem('saved_film'))
     : [];
 
-    console.log(savedFilm + 'local storage here');
-
   return savedFilm;
 };
 
 export const saveFilm = (film) => {
   if (film) {
     localStorage.setItem('saved_film', JSON.stringify(film));
-    console.log('saving film');
   } else {
     localStorage.removeItem('saved_film');
   }
