@@ -14,6 +14,7 @@ import MovieContext from '../utils/MovieContext';
 import { useMutation } from '@apollo/client';
 import { ADD_FILM } from '../utils/mutations';
 import { Link } from 'react-router-dom';
+import { saveFilm, getSavedFilm } from '../utils/localStorage';
 import Review from './Review';
 
 const Movies = () => {
@@ -23,7 +24,7 @@ const Movies = () => {
   const [searchInput, setSearchInput] = useState('');
 
   // create state to hold saved bookId values
-  // const [savedFilmIds, setSavedFilmIds] = useState(getSavedFilmIds());
+  const [savedFilm, setSavedFilm] = useState(getSavedFilm());
 
   // create state for holding returned movie api data
     const [searchedFilms, setSearchedFilms] = useState([]);
@@ -67,9 +68,11 @@ const Movies = () => {
   };
 
     // create function to handle saving a film to our database
-    const handleSaveFilm = async (filmId) => {
+    const handleSaveFilm = async (film) => {
       // find the book in `searchedBooks` state by the matching id
-      const filmToSave = searchedFilms.find((film) => film.filmId === filmId);
+      console.log(film);
+      setSavedFilm(film);
+      const filmToSave = searchedFilms.find((film) => film.filmId === film.id);
   
       // get token
       const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -82,8 +85,7 @@ const Movies = () => {
         const { data } = await addFilm({
           variables: { filmData: { ...filmToSave } },
         });
-        //console.log(savedFilmIds);
-       // setSavedFilmIds([...savedFilmIds, filmToSave.filmId]);
+       console.log('saving film in local storage');
       } catch (err) {
         console.error(err);
       }
@@ -141,7 +143,7 @@ const Movies = () => {
                 <Card.Body>
                   <Card.Title>{film.title}</Card.Title>
                   <Card.Text>{film.description}</Card.Text>
-                 <Link to='/Review'><Button onClick={test}>Reviews</Button></Link>
+                 <Link to='/Review'><Button onClick={() => saveFilm(film)}>Reviews</Button></Link>
                 </Card.Body>
               </Card>
             );

@@ -14,11 +14,14 @@ import {
   Button,
 } from 'react-bootstrap';
 import MovieContext from '../utils/MovieContext';
-
+import { saveFilm, getSavedFilm } from '../utils/localStorage';
 
 const Reviews = () => {
-  const movieData = useContext(MovieContext);
- // console.log(movieData);
+
+    // create state to hold saved bookId values
+    const [savedFilm, setSavedFilm] = useState(getSavedFilm());
+    console.log(savedFilm);
+;
   const { loading, data } = useQuery(GET_FILM_REVIEWS);
   const [removeReview, { error }] = useMutation(REMOVE_REVIEW);
 
@@ -53,10 +56,11 @@ const Reviews = () => {
     <>
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
-          <h1>Viewing {movieData?.title} Reviews</h1>
+          <h1>Viewing {savedFilm.title} Reviews</h1>
         </Container>
       </Jumbotron>
       <Container>
+      <p>{savedFilm.description}</p>
         <h2>
           {reviewData.review?.length
             ? `Viewing ${reviewData.review.length} saved ${
