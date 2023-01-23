@@ -26,7 +26,7 @@ const resolvers = {
 
     //Get all the reviews from a film
     getFilmReviews: async (parent, args, context) => {
-      const reviewData = await Review.find({film: {title: args.title}});
+      const reviewData = await Review.find({filmId: args});
 
       return reviewData;
     }

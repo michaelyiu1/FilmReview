@@ -12,20 +12,35 @@ import {
   CardColumns,
   Card,
   Button,
+  Col
 } from 'react-bootstrap';
 import MovieContext from '../utils/MovieContext';
 import { saveFilm, getSavedFilm } from '../utils/localStorage';
 
 const Reviews = () => {
 
-    // create state to hold saved bookId values
+  // create state to hold saved film values
     const [savedFilm, setSavedFilm] = useState(getSavedFilm());
     console.log(savedFilm);
-;
-  const { loading, data } = useQuery(GET_FILM_REVIEWS);
-  const [removeReview, { error }] = useMutation(REMOVE_REVIEW);
 
+  // create state for holding our review field data
+  const [reviewInput, setReviewInput] = useState('');
+  const { loading, data } = useQuery(GET_FILM_REVIEWS);
+  const [removeReview, { remove_error }] = useMutation(REMOVE_REVIEW);
+  const [addReview, { add_error }] = useMutation(ADD_REVIEW);
   const reviewData = data?.me || {};
+
+    // create method to add a review and set state on form submit
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+
+      console.log(reviewInput);
+
+      const { data } = await addReview({
+          filmId: savedFilm.filmId,
+          review: reviewInput });
+  
+    };
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteReview = async (ReviewId) => {
@@ -68,6 +83,29 @@ const Reviews = () => {
               }:`
             : 'This film has no reviews yet!'}
         </h2>
+
+        <Form onSubmit={handleFormSubmit}>
+            <Form.Row>
+              <Col xs={12} md={8}>
+                <Form.Control
+                  name="reviewInput"
+                  value={reviewInput}
+                  onChange={(e) => setReviewInput(e.target.value)}
+                  type="text"
+                  size="lg"
+                  placeholder="Add a review for this film!"
+                />
+              </Col>
+              <Col xs={12} md={4}>
+                <Button type="submit" variant="success" size="lg">
+                  Submit Review
+                </Button>
+              </Col>
+            </Form.Row>
+          </Form>
+
+
+
         <CardColumns>
           {reviewData.review?.map((review) => {
             return (
