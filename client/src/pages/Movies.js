@@ -17,6 +17,10 @@ import { ADD_FILM } from '../utils/mutations';
 import { Link } from 'react-router-dom';
 import { saveFilm, getSavedFilm } from '../utils/localStorage';
 import Review from './Review';
+import React from "react";
+import { MDBBtn } from "mdb-react-ui-kit";
+
+
 
 const Movies = () => {
 
@@ -106,7 +110,7 @@ const Movies = () => {
     <MDBCol>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Col xs={5} md={6}>
                 <Form.Control
                   name="searchInput"
                   value={searchInput}
@@ -116,7 +120,7 @@ const Movies = () => {
                   placeholder="Search for a movie"
                 />
               </Col>
-              <Col xs={12} md={4}>
+              <Col xs={1} md={4}>
                 <Button type="submit" variant="success" size="lg">
                   Submit Search
                 </Button>

@@ -6,6 +6,7 @@ const Home = () => {
 
   return (
     <div>
+      <h1>Movies For You! "MFY"</h1>
       <img src={moviePoster} />
     </div>
   );
