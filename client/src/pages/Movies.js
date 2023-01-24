@@ -16,6 +16,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_FILM } from '../utils/mutations';
 import { Link } from 'react-router-dom';
 import { saveFilm, getSavedFilm } from '../utils/localStorage';
+import moviePoster from '../Images/movie-poster.jpg'
 import Review from './Review';
 
 // import { MDBBtn } from "mdb-react-ui-kit";
@@ -100,18 +101,20 @@ const Movies = () => {
       //data.setCurrentMovie(film)
       console.log('hi');
       // console.log(currentdat'this is moviecontextdata');
+     
 
     };
 
 
 // React html
     return (
-  
+     
+  <div className="searchCenter">
+
     <MDBCol lg="12">
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={10} md={8}>
-       
+              <Col xs={5} md={8}>
                 <Form.Control 
                   name="searchInput"
                   value={searchInput}
@@ -139,6 +142,7 @@ const Movies = () => {
         <Row>
           {searchedFilms.map((film) => {
             return (
+              
               <Col md={4}>
               
               <Card key={film.filmId} border="dark">
@@ -161,6 +165,7 @@ const Movies = () => {
         </Row>
       </Container>
     </MDBCol>
+    </div>
   
 
   );

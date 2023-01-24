@@ -1,6 +1,7 @@
 import '../App.css';
 import { useState, useEffect } from "react";
 import moviePoster from '../Images/movie-poster.jpg'
+import React from 'react';
 
 const Home = () => {
 
