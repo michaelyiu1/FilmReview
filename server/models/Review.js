@@ -10,7 +10,7 @@ const reviewSchema = new Schema({
   },
   filmId:
     {
-      type: Number,
+      type: Schema.Types.Number,
       required: true
     },
   filmTitle:
@@ -18,11 +18,11 @@ const reviewSchema = new Schema({
       type: String
     },
   review: {
-    type: String,
+    type: Schema.Types.String,
     required: true,
   },
   rating: {
-    type: Number,
+    type: Schema.Types.Number,
   }
 });
 

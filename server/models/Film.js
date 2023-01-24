@@ -4,11 +4,11 @@ const {reviewSchema} = require('./Review');
 // Create schema for Film.js
 const filmSchema = new Schema({
     title: {
-        type: String,
+        type: Schema.Types.String,
         required: true
     },
     description: {
-        type: String,
+        type: Schema.Types.String,
         required: true
     },
     reviews: [reviewSchema]

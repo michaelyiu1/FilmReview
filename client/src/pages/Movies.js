@@ -8,6 +8,7 @@ import {
   Button,
   Card,
   CardColumns,
+  Row,
 } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import MovieContext from '../utils/MovieContext';
@@ -15,7 +16,12 @@ import { useMutation } from '@apollo/client';
 import { ADD_FILM } from '../utils/mutations';
 import { Link } from 'react-router-dom';
 import { saveFilm, getSavedFilm } from '../utils/localStorage';
+import moviePoster from '../Images/movie-poster.jpg'
 import Review from './Review';
+
+// import { MDBBtn } from "mdb-react-ui-kit";
+
+
 
 const Movies = () => {
 
@@ -95,28 +101,31 @@ const Movies = () => {
       //data.setCurrentMovie(film)
       console.log('hi');
       // console.log(currentdat'this is moviecontextdata');
+     
 
     };
 
 
 // React html
     return (
-    
-    <MDBCol md="8">
+     
+  <div className="searchCenter">
+
+    <MDBCol lg="12">
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
-                <Form.Control
+              <Col xs={5} md={8}>
+                <Form.Control 
                   name="searchInput"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="text"
                   size="lg"
                   placeholder="Search for a movie"
-                />
+                  />
               </Col>
-              <Col xs={12} md={4}>
-                <Button type="submit" variant="success" size="lg">
+              <Col md={12} lg={4}>
+                <Button type="submit" variant="success" size="md" center>
                   Submit Search
                 </Button>
               </Col>
@@ -129,15 +138,19 @@ const Movies = () => {
             ? `Viewing ${searchedFilms.length} results:`
             : 'Search for a film to begin'}
         </h2>
-        <CardColumns>
+
+        <Row>
           {searchedFilms.map((film) => {
             return (
+              
+              <Col md={4}>
+              
               <Card key={film.filmId} border="dark">
                 {film.image ? (
                   <Card.Img
                     src={film.image}
                     alt={`The cover for ${film.title}`}
-                    variant="top"
+                    variant="center"
                   />
                 ) : null}
                 <Card.Body>
@@ -146,14 +159,18 @@ const Movies = () => {
                  <Link to='/Review'><Button onClick={() => saveFilm(film)}>Reviews</Button></Link>
                 </Card.Body>
               </Card>
+              </Col>
             );
           })}
-        </CardColumns>
+        </Row>
       </Container>
     </MDBCol>
+    </div>
+  
 
   );
 }
+
 
 export default Movies;
 

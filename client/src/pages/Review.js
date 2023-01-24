@@ -89,14 +89,17 @@ const Reviews = () => {
 
   return (
     <>
+     <img src={savedFilm.image} className="movie-poster"/>
       <Jumbotron fluid className="text-light bg-dark">
+       
         <Container>
           <h1>Viewing {savedFilm.title} Reviews</h1>
+         
         </Container>
       </Jumbotron>
       <Container>
-      <p>{savedFilm.description}</p>
-        <h2>
+      <p className='text-white'>{savedFilm.description} </p>
+        <h2 className='text-white'>
           {reviewData.review?.length
             ? `Viewing ${reviewData.review.length} saved ${
                 reviewData.review.length === 1 ? 'review' : 'reviews'
@@ -106,7 +109,7 @@ const Reviews = () => {
 
         <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Col xs={10} md={8}>
                 <Form.Control
                   name="reviewInput"
                   value={reviewInput}
