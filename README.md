@@ -23,6 +23,9 @@ Clone the repository to your local machine.
 Run npm install in the root directory of the project to install all necessary dependencies.
 Run npm start to start the development server and launch the application in your browser.
 
+![App Screenshot](./movie.jpeg)
+![App Screenshot](./Login%20screenshot.png)
+![App Screenshot](./SignUp%20ScreenShot.png)
 
 
 Contributiors 
