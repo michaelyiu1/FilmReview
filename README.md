@@ -26,6 +26,8 @@ Run npm start to start the development server and launch the application in your
 ![App Screenshot](./movie.jpeg)
 ![App Screenshot](./Login%20screenshot.png)
 ![App Screenshot](./SignUp%20ScreenShot.png)
+[Uploading MainPage_Screenshot.png…]()
+
 
 
 Contributiors 
