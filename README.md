@@ -25,6 +25,7 @@ Movie Page
 Npm 1
 Npm Runstart
 Npm Run Develop
+react
 
 # Repo
 https://github.com/michaelyiu1/FilmReview
