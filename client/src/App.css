@@ -62,11 +62,33 @@ background-color: #fff;
 } */
 .searchCenter{
   background-color: rgb(255, 255, 255);
-  margin: auto;
-  width: 50%;
+  margin: 100px auto;
+  width: 70%;
   padding: 10px;
   height: 100%;
 
   
   
+}
+.title-page{
+  position: relative;
+}
+.title-page h1{
+  position: absolute ;
+  top: 45%;
+  margin: 10% auto;
+  z-index: 1000;
+  left: 25%;
+  color: rgb(255, 255, 255);
+  font-size: 100px;
+  
+}
+body{
+ 
+  background: url("./Images/filmposter.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }

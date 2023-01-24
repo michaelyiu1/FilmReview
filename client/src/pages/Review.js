@@ -98,8 +98,8 @@ const Reviews = () => {
         </Container>
       </Jumbotron>
       <Container>
-      <p>{savedFilm.description}</p>
-        <h2>
+      <p className='text-white'>{savedFilm.description} </p>
+        <h2 className='text-white'>
           {reviewData.review?.length
             ? `Viewing ${reviewData.review.length} saved ${
                 reviewData.review.length === 1 ? 'review' : 'reviews'
